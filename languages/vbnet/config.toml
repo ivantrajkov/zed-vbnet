@@ -1,0 +1,18 @@
+name = "VB.NET"
+grammar = "vb_dotnet"
+path_suffixes = ["vb"]
+code_fence_block_name = "vb"
+line_comments = ["' ", "''' "]
+autoclose_before = ",.:)}]"
+tab_size = 4
+hard_tabs = false
+brackets = [
+    { start = "(", end = ")", close = true, newline = true },
+    { start = "{", end = "}", close = true, newline = true },
+    { start = "\"", end = "\"", close = true, newline = false, not_in = ["string", "comment"] },
+]
+
+# The grammar does not expose VB keywords as syntax nodes, so block indentation
+# (Sub ... End Sub, If ... End If, etc.) is driven by these line patterns.
+increase_indent_pattern = '''(?i)^\s*((<.*>\s*)?((Public|Private|Protected|Friend|Shared|Shadows|Overloads|Overrides|Overridable|NotOverridable|MustInherit|NotInheritable|Partial|ReadOnly|WriteOnly|Default|Async|Iterator|Widening|Narrowing|Static)\s+)*(Class|Module|Structure|Interface|Enum|Namespace|Sub|Function|Property|Operator|Custom\s+Event|Get|Set|AddHandler|RemoveHandler|RaiseEvent)\b|If\b.*\bThen\s*('.*)?$|ElseIf\b|Else\s*('.*)?$|Select\s+Case\b|Case\b|For\b|While\b|Do\b|Try\s*('.*)?$|Catch\b|Finally\s*('.*)?$|With\b|Using\b|SyncLock\b|#Region\b)'''
+decrease_indent_pattern = '''(?i)^\s*(End\b|Next\b|Loop\b|Else\b|ElseIf\b|Case\b|Catch\b|Finally\b|#End\s+Region\b)'''

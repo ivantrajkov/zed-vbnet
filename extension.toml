@@ -1,0 +1,18 @@
+id = "vbnet"
+name = "VB.NET"
+version = "0.1.0"
+schema_version = 1
+authors = ["Иван Трајков <trajkov.ivan@hotmail.com>"]
+description = "Visual Basic .NET support: syntax highlighting, outline, and a Roslyn-based language server (vb-ls)."
+repository = "https://github.com/ivantrajkov/zed-vbnet"
+
+[grammars.vb_dotnet]
+repository = "https://github.com/CodeAnt-AI/tree-sitter-vb-dotnet"
+rev = "cfca210ce8fdcb5245bd9cd5c47ce0a21a8488d5"
+
+[language_servers.vb-ls]
+name = "vb-ls"
+languages = ["VB.NET"]
+
+[language_servers.vb-ls.language_ids]
+"VB.NET" = "vb"
