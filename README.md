@@ -13,8 +13,9 @@ Zed .NET Visual Basic support: VB.NET for the [Zed](https://zed.dev) editor.
 ## Requirements
 
 - .NET 10 SDK (`dotnet` on `PATH`).
-- For installing as a dev extension: Rust via `rustup` and a C toolchain
-  (`sudo apt install build-essential` on Ubuntu/Debian).
+- For installing as a dev extension: Rust via `rustup` with a default toolchain
+  (`rustup default stable`) and a C toolchain (`sudo apt install build-essential`
+  on Ubuntu/Debian).
 
 ## Language server lookup
 
@@ -73,5 +74,8 @@ Logs: `zed: open log`.
   are not coloured; types, names, strings, numbers and comments are.
 - Block indentation is pattern-based (`config.toml`); auto-properties and
   interface members without a body indent the next line.
-- The grammar does not yet parse every VB.NET construct (for example `Handles`,
-  `Operator`, XML literals). Unparsed regions fall back to semantic highlighting.
+- The grammar does not yet parse every VB.NET construct, for example
+  `Dim x As New Foo()`, `Inherits`/`Implements` on their own line, a method's
+  `Implements IFoo.Bar`, `From { ... }` collection initializers, `Handles`,
+  `Operator` and XML literals. Colours in those regions still come from the
+  language server, but the outline and indentation can be off nearby.
